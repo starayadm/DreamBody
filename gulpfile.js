@@ -46,6 +46,9 @@ gulp.task('styles', function() {
 gulp.task('scripts', function() {
 	return gulp.src([
 		// 'node_modules/jquery/dist/jquery.min.js', // Optional jQuery plug-in (npm i --save-dev jquery)
+		'node_modules/animejs/lib/anime.min.js',
+		'node_modules/focus-visible/dist/focus-visible.min.js',
+		'node_modules/vanilla-lazyload/dist/lazyload.min.js',
 		'app/js/_custom.js', // Custom scripts. Always at the end
 		])
 	.pipe(concat('scripts.min.js'))

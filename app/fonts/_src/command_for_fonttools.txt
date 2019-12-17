@@ -1,3 +1,0 @@
-pyftsubset RobotoRegular/RobotoRegular.ttf --output-file=RobotoRegular/RobotoRegular--pyftsubset.ttf --unicodes-file=codes.txt
-
-// Установить Python, затем fonttools, затем в cmd писать команду
