@@ -75,8 +75,96 @@ picture
 	display: flex
 	align-items: center
 	justify-content: space-between
+	@include respond-at(768px)
+		padding: rem(27) 0
 	&__nav
+		position: absolute
+		top: 62px
+		right: 0
+		z-index: -1
+		width: 80%
+		height: 100vh
+		display: flex
+		justify-content: center
+		align-items: center
+		background-color: $inversed
+		transform: translateX(100%)
+		transition: transform 0.5s ease-in
+
+.header__nav--active
+	transform: translateX(0%)
+
+.menu
+	display: flex
+	flex-direction: column
+	flex-wrap: wrap
+	margin: -62px 0 0
+	padding: 0
+	&__item
+		list-style: none
+		&:not(:last-of-type)
+			margin-bottom: 10vh
+	&__link
+		position: relative
+		display: inline-block
+		padding: 0 5px
+		font-size: 1.25rem
+		font-weight: 700
+		color: $paragraph
+		&::before
+			position: absolute
+			left: 0
+			top: 50%
+			width: 100%
+			height: 1px
+			background-color: $paragraph
+			content: ""
+			transform: translateY(-50%)
+			opacity: 0
+		&:hover
+			color: $paragraph
+			text-decoration: none
+			&::before
+				opacity: 1
+				animation: link-hover 0.25s ease
+		&.focus-visible
+			outline: 0
+			&::before
+				opacity: 1
+				animation: link-hover 0.25s ease
+
+@keyframes link-hover
+	from
+		width: 0
+	to
+		width: 100%
+
+.hamburger
+	@include respond-at(768px)
 		display: none
+
+.header__nav--visible
+	@include respond-at(768px)
+		position: relative
+		top: 0
+		z-index: 10
+		width: 100%
+		height: 100%
+		transform: none
+		.menu
+			width: 100%
+			margin: 0
+			justify-content: flex-end
+			align-items: center
+			&__item
+				margin-bottom: 0
+				&:not(:last-of-type)
+					margin-right: rem(70)
+					@include respond-at(1200px)
+						margin-right: rem(110)
+			&__link
+				font-size: rem(13)
+
 
 // Hero
 
