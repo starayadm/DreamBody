@@ -60,7 +60,9 @@ picture
 
 .container
 	max-width: 90vw
+	// padding: 0 1rem
 	margin: 0 auto
+	overflow: hidden
 
 // Page Header
 
@@ -215,19 +217,20 @@ picture
 		transform: translateX(-50%)
 
 .title
+	margin-right: auto
+	margin-left: auto
 	margin-bottom: 1.5rem
 	font-size: rem(26)
 	font-weight: 800
 	line-height: 1.2
 	letter-spacing: 1px
+	text-align: center
 
 .hero__title
 	@include respond-at(768px)
 		font-size: rem(45)
 	@include respond-at(1200px)
 		max-width: rem(730)
-		margin-right: auto
-		margin-left: auto
 		font-size: rem(60)
 
 .btn
@@ -298,10 +301,43 @@ picture
 		@include respond-at(768px)
 			max-width: rem(286)
 
+.hero__decor
+	position: absolute
+
+.decor-line
+	fill: $tertiary
+
 // Features
 
 .features
-	margin-bottom: 100px
-
-.decor
-	fill: $tertiary
+	padding-top: rem(90)
+	&__title
+		margin-bottom: 3rem
+	&__container
+		display: flex
+		flex-direction: column
+		justify-content: center
+		align-items: center
+		margin: 0 -16px
+	&__item
+		max-width: rem(405)
+		width: 100%
+		border-radius: rem(50)
+		background-color: $inversed
+		box-shadow: 0 1px 24px rgba($text, 0.2)
+		// border: 1px solid rgba($text, 0.2)
+		// box-shadow: 0 2px 3px rgba($text, 0.2)
+		// @include respond-at(495px)
+		// 	border: none
+		// 	box-shadow: 0 1px 24px rgba($text, 0.2)
+		&:not(:last-of-type)
+			margin-bottom: rem(45)
+	&__content
+		padding: rem(70) rem(22) rem(23)
+		text-align: center
+	&__img
+		width: rem(70)
+		height: rem(70)
+	&__text
+		max-width: rem(245)
+		margin: 1.5rem auto 0
