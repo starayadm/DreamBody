@@ -58,11 +58,24 @@ picture
 	display: inline-block
 	line-height: 0
 
+// Grid
+
+/* autoprefixer grid: on */
+
 .container
 	max-width: 90vw
-	// padding: 0 1rem
 	margin: 0 auto
 	overflow: hidden
+	@include respond-at(1440px)
+		max-width: rem(1296)
+
+.grid-container
+	display: grid
+	grid-template-columns: auto
+	grid-template-rows: auto
+	@include respond-at(768px)
+		grid-template-columns: 1fr 1fr
+		grid-column-gap: 2rem
 
 // Page Header
 
@@ -72,29 +85,29 @@ picture
 	width: 100%
 	background-color: $inversed
 	box-shadow: 0 1px 10px rgba($btn-shadow, 0.2)
+	@include respond-at(768px)
+		padding: rem(27) 0
 
 .header
 	display: flex
-	align-items: center
 	justify-content: space-between
-	@include respond-at(768px)
-		padding: rem(27) 0
-	&__nav
-		position: absolute
-		top: 62px
-		right: 0
-		z-index: -1
-		width: 80%
-		height: 100vh
-		display: flex
-		justify-content: center
-		align-items: center
-		background-color: $inversed
-		transform: translateX(100%)
-		transition: transform 0.5s ease-in
+	align-items: center
 
-.header__nav--active
-	transform: translateX(0%)
+.nav
+	position: absolute
+	top: 61px
+	right: 0
+	z-index: -1
+	width: 80%
+	height: 100vh
+	display: flex
+	justify-content: center
+	align-items: center
+	background-color: $inversed
+	transform: translateX(100%)
+	transition: transform 0.5s ease-in
+	&--active
+		transform: translateX(0%)
 
 .menu
 	margin: -62px 0 0
@@ -142,7 +155,7 @@ picture
 	@include respond-at(768px)
 		display: none
 
-.header__nav--visible
+.nav--visible
 	@include respond-at(768px)
 		position: relative
 		top: 0
@@ -165,7 +178,6 @@ picture
 			&__link
 				font-size: rem(13)
 
-
 // Hero
 
 .hero
@@ -175,46 +187,47 @@ picture
 		padding-top: rem(210)
 	@include respond-at(1200px)
 		padding-top: 0
-	&__container
-		@include respond-at(1200px)
-			display: flex
-	&__content
+
+.hero__content,
+.hero__images
+	@include respond-at(768px)
+		grid-column: 1 / 3
+
+.hero__content
+	@include respond-at(1200px)
+		grid-column: 2 / 3
+
+.hero__images
+	position: relative
+	z-index: 10
+	text-align: center
+	@include respond-at(1200px)
+		grid-column: 1 / 2
+		grid-row: 1 / 2
+		margin-top: rem(125)
+
+.hero__content
 		margin-bottom: rem(115)
 		text-align: center
+		@include respond-at(768px)
+			margin-bottom: rem(150)
 		@include respond-at(1200px)
-			order: 2
-			flex-basis: 55%
 			margin-top: rem(210)
 			margin-bottom: 0
-	&__subtitle
-		margin-bottom: 3rem
-		@include respond-at(768px)
-			max-width: rem(465)
-			margin-right: auto
-			margin-left: auto
-	&__images
-		position: relative
-		padding-bottom: rem(60)
-		@include respond-at(1200px)
-			order: 1
-			flex-basis: 45%
-			margin-top: rem(154)
-			padding-bottom: 0
-	&__pic
-		position: relative
-		z-index: 10
-		text-align: center
-	&__img
-		max-width: 53vw
-		@include respond-at(510px)
-			max-width: rem(300)
-		@include respond-at(1200px)
-			max-width: rem(273)
-	&__blob
-		position: absolute
-		left: 50%
-		top: 7vh
-		transform: translateX(-50%)
+
+.hero__img
+	max-width: rem(273)
+
+.hero__bg
+	position: absolute
+	top: 50%
+	left: 50%
+	z-index: -1
+	width: 100%
+	transform: translate(-50%, -50%)
+
+.hero__blob
+	margin: 0 auto
 
 .title
 	margin-right: auto
@@ -229,9 +242,17 @@ picture
 .hero__title
 	@include respond-at(768px)
 		font-size: rem(45)
+	@include respond-at(1024px)
+		font-size: rem(53)
+
+.hero__subtitle
+	margin-bottom: 3rem
+	@include respond-at(768px)
+		max-width: rem(465)
+		margin-right: auto
+		margin-left: auto
 	@include respond-at(1200px)
-		max-width: rem(730)
-		font-size: rem(60)
+		margin-bottom: 4rem
 
 .btn
 	@include button-reset
@@ -259,31 +280,29 @@ picture
 		background-position: right
 
 .hero__btn
-	margin-bottom: rem(70)
-	@include respond-at(768px)
-		margin-bottom: rem(90)
+	@include respond-at(1200px)
+		margin-bottom: 4rem
+	@include respond-at(1440px)
+		margin-bottom: 5rem
 
 .facts
 	padding-left: 0
+	font-size: rem(14)
 	line-height: 1.4
 	text-align: left
 	@include respond-at(768px)
 		display: flex
 		justify-content: space-between
-		align-items: flex-start
-		font-size: rem(20)
 	&__item
 		position: relative
 		padding-left: rem(21)
 		list-style: none
-		&:not(:last-of-type)
-			margin-bottom: rem(21)
-			@include respond-at(768px)
-				margin-bottom: 0
+		&:first-child
+			margin-right: 1rem
 		&::before
 			position: absolute
 			left: 0
-			top: 5px
+			top: 4px
 			width: 9px
 			height: 9px
 			border-radius: 10em
@@ -291,15 +310,9 @@ picture
 			content: ""
 
 .hero__facts
-	max-width: rem(680)
-	margin: 0 auto rem(110)
-	@include respond-at(768px)
-		margin-bottom: rem(150)
+	display: none
 	@include respond-at(1200px)
-		margin-bottom: 0
-	.facts__item
-		@include respond-at(768px)
-			max-width: rem(286)
+		display: flex
 
 .hero__decor
 	position: absolute
@@ -309,35 +322,35 @@ picture
 
 // Features
 
-.features
-	padding-top: rem(90)
-	&__title
-		margin-bottom: 3rem
-	&__container
-		display: flex
-		flex-direction: column
-		justify-content: center
-		align-items: center
-		margin: 0 -16px
-	&__item
-		max-width: rem(405)
-		width: 100%
-		border-radius: rem(50)
-		background-color: $inversed
-		box-shadow: 0 1px 24px rgba($text, 0.2)
-		// border: 1px solid rgba($text, 0.2)
-		// box-shadow: 0 2px 3px rgba($text, 0.2)
-		// @include respond-at(495px)
-		// 	border: none
-		// 	box-shadow: 0 1px 24px rgba($text, 0.2)
-		&:not(:last-of-type)
-			margin-bottom: rem(45)
-	&__content
-		padding: rem(70) rem(22) rem(23)
-		text-align: center
-	&__img
-		width: rem(70)
-		height: rem(70)
-	&__text
-		max-width: rem(245)
-		margin: 1.5rem auto 0
+// .features
+// 	padding-top: rem(90)
+// 	&__title
+// 		margin-bottom: 3rem
+// 	&__container
+// 		display: flex
+// 		flex-direction: column
+// 		justify-content: center
+// 		align-items: center
+// 		margin: 0 -16px
+// 	&__item
+// 		max-width: rem(405)
+// 		width: 100%
+// 		border-radius: rem(50)
+// 		background-color: $inversed
+// 		box-shadow: 0 1px 24px rgba($text, 0.2)
+// 		// border: 1px solid rgba($text, 0.2)
+// 		// box-shadow: 0 2px 3px rgba($text, 0.2)
+// 		// @include respond-at(495px)
+// 		// 	border: none
+// 		// 	box-shadow: 0 1px 24px rgba($text, 0.2)
+// 		&:not(:last-of-type)
+// 			margin-bottom: rem(45)
+// 	&__content
+// 		padding: rem(70) rem(22) rem(23)
+// 		text-align: center
+// 	&__img
+// 		width: rem(70)
+// 		height: rem(70)
+// 	&__text
+// 		max-width: rem(245)
+// 		margin: 1.5rem auto 0

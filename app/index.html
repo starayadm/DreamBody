@@ -24,20 +24,20 @@
 <body class="page__body">
 
 	<header class="page__header">
-
+	
 		<div class="container">
-
+	
 			<div class="header">
-
+	
 				<img src="./img/logo.svg" alt="Логотип" class="logo">
-
+	
 				<button class="hamburger hamburger--stand" type="button" aria-label="Меню" aria-controls="navigation">
 					<span class="hamburger-box">
 						<span class="hamburger-inner"></span>
 					</span>
 				</button>
-
-				<nav class="header__nav header__nav--visible">
+	
+				<nav class="nav nav--visible">
 					<ul class="menu">
 						<li class="menu__item">
 							<a href="" class="menu__link">Курсы</a>
@@ -50,16 +50,77 @@
 						</li>
 					</ul>
 				</nav>
-
+	
 			</div>
-
+	
 		</div>
-
+	
 	</header>
 
 	<main class="page__content">
 
 		<section class="hero">
+		
+			<div class="container">
+		
+				<div class="grid-container">
+		
+					<div class="hero__content">
+		
+						<h1 class="title hero__title">Поможем добиться фигуры твоей мечты за&nbsp;60&nbsp;дней</h1>
+		
+						<p class="hero__subtitle">Запишись на&nbsp;курс сейчас и&nbsp;получи консультацию по&nbsp;питанию бесплатно</p>
+		
+						<a href="#" class="btn hero__btn">Записаться на&nbsp;курс</a>
+		
+						<ul class="facts hero__facts">
+							<li class="facts__item">Различный уровень сложности</li>
+							<li class="facts__item">Учтены все особенности женского тренинга</li>
+						</ul>
+		
+					</div>
+		
+					<div class="hero__images">
+		
+						<picture class="hero__img">
+							<source type="image/webp" data-srcset="./img/content/girl-1.webp 1x, ./img/content/girl-1@2x.webp 2x">
+							<img alt="Девушка прыгает вверх." class="responsive-img lazy" src="./img/thumbs/girl-1.gif"
+								data-src="./img/content/girl-1@2x.png"
+								data-srcset="./img/content/girl-1.png 1x, ./img/content/girl-1@2x.png 2x">
+						</picture>
+		
+						<div class="hero__bg" aria-hidden="true">
+		
+							<svg width="461" height="546" viewBox="0 0 461 546" fill="none" class="responsive-img hero__blob">
+								<path class="blob"
+									d="M44.8994 155.746C72.0993 180.874 66.0929 227.042 59.682 246.985C10.6598 323.43 -54.1279 488.187 78.8993 535.66C201.102 581.03 249.397 443.922 321.826 489.791C394.261 535.66 484.439 340.218 453.884 274.905C423.333 209.592 301.135 184.165 330.203 95.9164C359.275 7.65922 304.092 -15.2652 217.363 9.16444C130.638 33.5851 10.9046 124.336 44.8994 155.746Z"
+										fill="url(#paint0_linear)" />
+									<defs>
+									<linearGradient id="paint0_linear" x1="460.992" y1="312.11" x2="56.3929" y2="245.215"
+											gradientUnits="userSpaceOnUse">
+										<stop stop-color="#3DA9FC" />
+										<stop offset="1" stop-color="#90B4CE" />
+									</linearGradient>
+								</defs>
+							</svg>
+									
+						</div>
+		
+					</div>
+		
+				</div>
+		
+			</div>
+
+			<div class="hero__decor">
+				<svg width="1920" height="102" viewBox="0 0 1920 102" fill="none" class="decor-line responsive-img">
+					<path d="M0 0H1920V73.1854C1920 73.1854 1713 138.018 960 73.1854C207 8.35268 0 73.1854 0 73.1854V0Z" />
+				</svg>
+			</div>
+		
+		</section>
+
+		<!-- <section class="hero">
 
 			<div class="container">
 
@@ -124,9 +185,9 @@
 				</svg>
 			</div>
 
-		</section>
+		</section> -->
 
-		<section class="features">
+		<!-- <section class="features">
 
 			<div class="container">
 
@@ -194,7 +255,7 @@
 
 			</div>
 
-		</section>
+		</section> -->
 
 	</main>
 

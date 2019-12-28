@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	// Menu
 
 	const menuBtn = document.querySelector(".hamburger"),
-				headerNav = document.querySelector(".header__nav"),
+				headerNav = document.querySelector(".nav"),
 				navLinks = document.querySelectorAll(".menu__link"),
 				pageBody = document.querySelector(".page__body");
 
@@ -17,9 +17,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 			// // Toggle Menu
 			menuBtn.classList.toggle("is-active");
-			headerNav.classList.toggle("header__nav--active");
+			headerNav.classList.toggle("nav--active");
 
-			if (headerNav.classList.contains("header__nav--active")) {
+			if (headerNav.classList.contains("nav--active")) {
 				pageBody.style.overflow = "hidden";
 			} else {
 				pageBody.style.overflow = "auto";
