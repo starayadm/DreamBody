@@ -195,7 +195,9 @@ picture
 		padding-top: 0
 
 .hero__content,
-.hero__images
+.hero__images,
+.about__content,
+.about__images
 	@include respond-at(768px)
 		grid-column: 1 / 3
 
@@ -203,10 +205,13 @@ picture
 	@include respond-at(1200px)
 		grid-column: 2 / 3
 
-.hero__images
+.hero__images,
+.about__images
 	position: relative
 	z-index: 10
 	text-align: center
+
+.hero__images
 	@include respond-at(1200px)
 		grid-column: 1 / 2
 		grid-row: 1 / 2
@@ -222,7 +227,9 @@ picture
 			margin-bottom: 0
 
 .hero__img
-	max-width: rem(255)
+	max-width: 50vw
+	@include respond-at(500px)
+		max-width: rem(255)
 
 .hero__bg
 	position: absolute
@@ -304,7 +311,7 @@ picture
 	font-size: rem(14)
 	line-height: 1.4
 	text-align: left
-	@include respond-at(768px)
+	@include respond-at(600px)
 		display: flex
 		justify-content: space-between
 	&__item
@@ -316,9 +323,9 @@ picture
 		&::before
 			position: absolute
 			left: 0
-			top: 4px
-			width: 9px
-			height: 9px
+			top: rem(4)
+			width: rem(9)
+			height: rem(9)
 			border-radius: 10em
 			background-color: $secondary
 			content: ""
@@ -379,3 +386,85 @@ picture
 		margin-bottom: 0
 	&__decor
 		position: absolute
+
+// About
+
+.about__content
+	@include respond-at(1200px)
+		grid-column: 1 / 2
+		margin-top: rem(87)
+		@include respond-at(1440px)
+			margin-top: rem(164)
+
+.about__images
+	@include respond-at(1200px)
+		grid-column: 2 / 3
+
+.about__text
+	max-width: rem(620)
+	margin-bottom: 3rem
+	@include respond-at(500px)
+		margin-left: auto
+		margin-right: auto
+		text-align: center
+	@include respond-at(1200px)
+		max-width: 100%
+		text-align: left
+
+.btn-container
+	text-align: center
+
+.about__btn
+	margin-bottom: rem(70)
+	@include respond-at(1200px)
+		margin-bottom: rem(245)
+	@include respond-at(1440px)
+		margin-bottom: rem(250)
+
+.about__facts
+	margin-bottom: rem(100)
+	@include respond-at(600px)
+		max-width: rem(700)
+		margin-left: auto
+		margin-right: auto
+	.facts__item:first-of-type
+		margin-right: 0
+	.facts__item::before
+		top: rem(27)
+	span
+		font-size: rem(36)
+		font-weight: 700
+
+.about__img
+	max-width: 50vw
+	@include respond-at(500px)
+		max-width: rem(224)
+	@include respond-at(1200px)
+		max-width: rem(274)
+
+.about__bg
+	position: absolute
+	top: 50%
+	left: 50%
+	z-index: -1
+	width: 100%
+	max-width: rem(418)
+	transform: translate(-50%, -50%)
+	@include respond-at(1200px)
+		max-width: rem(526)
+
+.about__blob-1
+	margin-right: auto
+	@include respond-at(1200px)
+		margin-left: auto
+
+.about__blob-2
+	position: absolute
+	top: 50%
+	left: 50%
+	z-index: -1
+	margin-left: auto
+	transform: translate(-50%, -50%)
+	@include respond-at(1200px)
+		margin-right: auto
+		
