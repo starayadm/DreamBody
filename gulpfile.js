@@ -49,6 +49,7 @@ gulp.task('scripts', function() {
 		'node_modules/animejs/lib/anime.min.js',
 		'node_modules/focus-visible/dist/focus-visible.min.js',
 		'node_modules/vanilla-lazyload/dist/lazyload.min.js',
+		'node_modules/swiper/js/swiper.min.js',
 		'app/js/_custom.js', // Custom scripts. Always at the end
 		])
 	.pipe(concat('scripts.min.js'))

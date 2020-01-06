@@ -102,4 +102,30 @@ document.addEventListener("DOMContentLoaded", function() {
 		]
 	});
 
+	// Swiper Slider
+
+	var swiper = new Swiper('.swiper-container', {
+		slidesPerView: 1,
+		spaceBetween: 36,
+		loop: true,
+		preloadImages: false,
+		lazy: true,
+		grabCursor: true,
+		keyboard: {
+			enabled: true,
+		},
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		},
+		pagination: {
+			el: '.swiper-pagination',
+			clickable: true,
+			type: 'bullets',
+			renderBullet: function (index, className) {
+				return '<img alt="Девушка улыбается" src="./img/content/review-' + (index + 1) + '.jpg" srcset="./img/content/review-' + (index + 1) + '.jpg 1x, ./img/content/review-' + (index + 1) + '@2x' + '.jpg 2x" class="' + className + '">';
+			},
+		},
+	});
+
 });
