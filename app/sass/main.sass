@@ -16,27 +16,27 @@
   outline: none
 
 .focus-visible
-	outline: 2px dotted $inversed
+	outline: 2px dotted $text
 
-[type="button"].focus-visible // for button
-	outline: 2px dotted $inversed
+[type="button"].focus-visible
+	outline: 2px dotted $text
 
 a[href]:not([class])
 	&:link
-		color: $inversed
+		color: $text
 		text-decoration: underline
-		transition: color 0.5s ease, text-decoration 0.5s ease
+		transition: color 0.25s ease, text-decoration 0.25s ease
 	&:visited
 		color: $visited
 	&:hover
-		// color: $accent
+		color: $hero
 		text-decoration: none
 	&.focus-visible
 		outline: 0
-		// color: $accent
+		color: $hero
 		text-decoration: none
 	&:active
-		// color: $active
+		color: $paragraph
 
 body
 	position: relative
@@ -127,29 +127,21 @@ picture
 			position: absolute
 			left: 0
 			top: 50%
-			width: 100%
+			width: 0
 			height: 1px
 			background-color: $paragraph
 			content: ""
 			transform: translateY(-50%)
-			opacity: 0
+			transition: width 0.25s ease
 		&:hover
 			color: $paragraph
 			text-decoration: none
 			&::before
-				opacity: 1
-				animation: link-hover 0.25s ease
+				width: 100%
 		&.focus-visible
 			outline: 0
 			&::before
-				opacity: 1
-				animation: link-hover 0.25s ease
-
-@keyframes link-hover
-	from
-		width: 0
-	to
-		width: 100%
+				width: 100%
 
 .hamburger
 	@include respond-at(768px)
@@ -243,7 +235,8 @@ picture
 	margin: 0 auto
 
 .title,
-.section__title
+.section__title,
+.course__title
 	margin-right: auto
 	margin-left: auto
 	margin-bottom: 1.5rem
@@ -277,7 +270,7 @@ picture
 
 .btn
 	@include button-reset
-	max-width: rem(260)
+	width: rem(260)
 	padding: rem(20) rem(44)
 	font-size: rem(16)
 	font-weight: 700
@@ -340,12 +333,17 @@ picture
 
 // Features
 
+.block
+	width: 100%
+	margin-bottom: rem(45)
+	border-radius: rem(50)
+	background-color: $inversed
+	box-shadow: 0 1px 24px rgba($text, 0.2)
+
 .features
 	background-repeat: no-repeat
 	background-size: contain
 	background-position: center bottom
-	&__title
-		margin-bottom: 3rem
 	&__container
 		justify-items: center
 		margin: 0 1rem
@@ -354,11 +352,6 @@ picture
 		@include respond-at(1024px)
 			margin-bottom: rem(64)
 	&__item
-		width: 100%
-		margin-bottom: rem(45)
-		border-radius: rem(50)
-		background-color: $inversed
-		box-shadow: 0 1px 24px rgba($text, 0.2)
 		@include respond-at(500px)
 			max-width: rem(522)
 		@include respond-at(768px)
@@ -387,6 +380,11 @@ picture
 	&__decor
 		position: absolute
 
+.features__title,
+.courses__title,
+.contacts__title
+	margin-bottom: 3rem
+
 // About
 
 .about__content
@@ -397,9 +395,7 @@ picture
 			margin-top: rem(164)
 
 .about__title
-	text-align: left
-	@include respond-at(500px)
-		text-align: center
+	text-align: center
 
 .about__images
 	@include respond-at(1200px)
@@ -557,3 +553,199 @@ picture
 	line-height: 1
 	color: $paragraph
 	text-transform: uppercase
+
+// Courses
+
+.courses__inner
+	margin: 0 1rem
+
+.courses__list
+	display: flex
+	flex-flow: column wrap
+	align-items: center
+	margin-bottom: 4rem
+	padding: 0
+	@include respond-at(1440px)
+		flex-direction: row
+		justify-content: space-between
+		align-items: stretch
+
+.courses__item
+	max-width: rem(405)
+	list-style: none
+	background-repeat: no-repeat
+	background-size: content
+	background-position: top center
+	@include respond-at(1440px)
+		max-width: rem(398)
+		margin-bottom: 0
+
+.course
+	max-width: rem(338)
+	margin: 0 auto
+	padding: rem(120) rem(15) rem(40)
+	@include respond-at(1440px)
+		padding:
+			left: 0
+			right: 0
+	&__title
+		font-size: rem(14)
+		font-weight: 700
+		text-align: left
+		color: $paragraph
+		text-transform: uppercase
+		@include respond-at(768px)
+			font-size: rem(16)
+	&__price
+		margin-bottom: 1.5rem
+		font-size: rem(50)
+		font-weight: 700
+		line-height: 1
+		@include respond-at(768px)
+			font-size: rem(60)
+	&__currency
+		font-size: rem(20)
+		@include respond-at(768px)
+			font-size: rem(24)
+	&__text
+		margin-bottom: 0
+		font-size: rem(16)
+		@include respond-at(768px)
+			font-size: 1rem
+
+.courses__btn
+	margin-bottom: 1rem
+	padding:
+		right: rem(30)
+		left: rem(30)
+
+// Contacts
+
+.contacts
+	position: relative
+
+.contacts__title
+	@include respond-at(768px)
+		max-width: rem(720)
+		margin-right: 0
+		margin-left: 0
+		text-align: left
+
+.form
+	max-width: rem(450)
+	margin: 0 auto
+	text-align: center
+	@include respond-at(768px)
+		max-width: 100%
+		margin: 0
+		text-align: left
+	input:not([type="button"])
+		width: 100%
+		margin-bottom: 1rem
+		padding: rem(13) 1rem
+		font-size: rem(14)
+		font-weight: 700
+		line-height: 1
+		color: $paragraph
+		background-color: rgba(#8c8c8c, 0.2)
+		border: 1px solid transparent
+		border-radius: rem(50)
+		transition: background-color 0.5s ease, border 0.5s ease
+		&.focus-visible
+			outline: 0
+			background-color: $inversed
+			border: 1px solid $hero
+	input[type="button"]
+		margin-top: 1rem
+		margin-bottom: rem(192)
+		@include respond-at(768px)
+			margin-bottom: rem(256)
+		@include respond-at(1024px)
+			margin-bottom: rem(310)
+		@include respond-at(1200px)
+			margin-bottom: rem(330)
+		@include respond-at(1440px)
+			margin-bottom: rem(360)
+		@include respond-at(1920px)
+			margin-bottom: rem(430)
+
+.contacts__pic
+	display: none
+	@include respond-at(768px)
+		position: absolute
+		top: rem(200)
+		right: 0
+		z-index: 100
+		display: block
+		max-width: rem(300)
+	@include respond-at(1200px)
+		top: rem(60)
+		max-width: rem(400)
+	@include respond-at(1440px)
+		top: 0
+		max-width: 100%
+
+.contacts-decor
+	position: relative
+	&__item
+		position: absolute
+		bottom: 0
+		left: 0
+
+// Page Footer
+
+.page__footer
+	background-color: $tertiary
+		
+.footer-contacts
+	margin-bottom: 3rem
+	padding: 0
+	@include respond-at(500px)
+		margin: 0 auto
+	&__item
+		list-style: none
+		&:not(:last-of-type)
+			margin-bottom: 0.5rem
+	&__link
+		position: relative
+		font-size: rem(13)
+		font-weight: 700
+		color: $text
+		&::before
+			position: absolute
+			bottom: -1px
+			left: 0
+			width: 0
+			height: 1px
+			background-color: $text
+			content: ""
+			transition: width 0.25s ease
+		&:hover
+			color: inherit
+			text-decoration: none
+			&::before
+				width: 100%
+		&.focus-visible
+			outline: 0
+			&::before
+				width: 100%
+
+.footer-logo
+	width: rem(186)
+	height: auto
+	margin-bottom: 1rem
+
+.footer-container
+	@include respond-at(500px)
+		grid-gap: 2rem
+		margin-bottom: 3rem
+		margin-top: rem(10)
+	.footer-contacts
+		@include respond-at(500px)
+			grid-column: 2 / 3
+	.footer-logo
+		@include respond-at(500px)
+			grid-column: 1 / 2
+			grid-row: 1 / 2
+			align-self: end
+			margin-bottom: 0

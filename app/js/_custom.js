@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
 				pageBody.style.overflow = "auto";
 			};
 
-			// // Animate Links
+			// // Animate Mobile Menu Links
 
 			const timelineLinks = anime.timeline({
 				targets: navLinks,
@@ -47,6 +47,23 @@ document.addEventListener("DOMContentLoaded", function() {
 			});
 
 		});
+
+ // Smooth Scrolling
+
+ const anchors = document.querySelectorAll('a[href*="#"]');
+
+	for (let anchor of anchors) {
+		anchor.addEventListener('click', function (e) {
+			e.preventDefault();
+			
+			const blockID = anchor.getAttribute('href').substr(1);
+			
+			document.getElementById(blockID).scrollIntoView({
+				behavior: 'smooth',
+				block: 'start'
+			});
+		});
+	}
 
  // Hero Blob
 

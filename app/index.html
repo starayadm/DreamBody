@@ -40,13 +40,13 @@
 				<nav class="nav nav--visible">
 					<ul class="menu">
 						<li class="menu__item">
-							<a href="" class="menu__link">Курсы</a>
+							<a href="#reviews" class="menu__link">Отзывы</a>
 						</li>
 						<li class="menu__item">
-							<a href="" class="menu__link">Отзывы</a>
+							<a href="#courses" class="menu__link">Курсы</a>
 						</li>
 						<li class="menu__item">
-							<a href="" class="menu__link">Войти</a>
+							<a href="#" class="menu__link">Войти</a>
 						</li>
 					</ul>
 				</nav>
@@ -133,7 +133,7 @@
 		
 					<div class="grid-container features__container">
 		
-						<div class="features__item">
+						<div class="block features__item">
 		
 							<div class="features__content">
 		
@@ -147,7 +147,7 @@
 		
 						</div>
 		
-						<div class="features__item">
+						<div class="block features__item">
 		
 							<div class="features__content">
 		
@@ -161,7 +161,7 @@
 		
 						</div>
 		
-						<div class="features__item">
+						<div class="block features__item">
 		
 							<div class="features__content">
 		
@@ -175,7 +175,7 @@
 		
 						</div>
 		
-						<div class="features__item">
+						<div class="block features__item">
 		
 							<div class="features__content">
 		
@@ -259,7 +259,7 @@
 		
 		</section>
 
-		<section class="section reviews">
+		<section class="section reviews" id="reviews">
 
 			<div class="container">
 
@@ -324,9 +324,114 @@
 
 		</section>
 
+		<section class="section courses" id="courses">
+
+			<div class="container">
+
+				<h2 class="title section__title courses__title">Курсы для разной подготовки</h2>
+
+				<ul class="courses__list courses__inner">
+
+					<li class="block courses__item lazy" data-bg="url(./img/svg/bg/courses-item-1.svg)">
+						<div class="course">
+							<h3 class="course__title">Базовый (дома/в зале)</h3>
+							<p class="course__price">3&nbsp;500<span class="course__currency"> руб.</span></p>
+							<p class="course__text">Задействуем все группы мышц. Результат&nbsp;&mdash; красивое и&nbsp;подтянутое тело.</p>
+						</div>
+					</li>
+					
+					<li class="block courses__item lazy" data-bg="url(./img/svg/bg/courses-item-2.svg)">
+						<div class="course">
+							<h3 class="course__title">Продвинутый (дома/в зале)</h3>
+							<p class="course__price">5&nbsp;500<span class="course__currency"> руб.</span></p>
+							<p class="course__text">Курс для подготовленных. Поможем улучшить результат и&nbsp;преодолеть &laquo;плато&raquo;.</p>
+						</div>
+					</li>
+					
+					<li class="block courses__item lazy" data-bg="url(./img/svg/bg/courses-item-3.svg)">
+						<div class="course">
+							<h3 class="course__title">Интенсивный (дома + в&nbsp;зале)</h3>
+							<p class="course__price">8&nbsp;500<span class="course__currency"> руб.</span></p>
+							<p class="course__text">Максимальный результат в&nbsp;короткие сроки! В&nbsp;программу включены упражнения, инвентарь для которых есть дома и&nbsp;в&nbsp;каждом тренажерном зале.</p>
+						</div>
+					</li>
+
+				</ul>
+
+				<div class="btn-container">
+					<a href="#" class="btn courses__btn">Заказать консультацию</a>
+				</div>
+
+			</div>
+
+		</section>
+
+		<section class="section contacts">
+
+			<div class="container">
+
+				<h2 class="title section__title contacts__title">Свяжитесь с&nbsp;нами и&nbsp;узнайте подробнее о&nbsp;курсах</h2>
+
+				<div class="grid-container">
+
+					<form action="#" class="form">
+						<input type="text" name="name" placeholder="Имя" required>
+						<input type="tel" name="phone" placeholder="Телефон" required>
+						<input type="email" name="email" placeholder="Email" required>
+						<input type="button" value="Узнать о курсах" class="btn">
+					</form>
+
+					<picture class="contacts__pic">
+						<source type="image/webp" data-srcset="./img/content/dumbbell.webp 1x, ./img/content/dumbbell@2x.webp 2x">
+						<img alt="Гантель в женской руке" class="responsive-img lazy" src="./img/thumbs/dumbbell.gif" data-src="./img/content/dumbbell.png"
+							data-srcset="./img/content/dumbbell.png 1x, ./img/content/dumbbell@2x.png 2x">
+					</picture>
+
+				</div>
+
+			</div>
+
+			<div class="contacts-decor">
+				<svg width="1668" height="221" viewBox="0 0 1668 221" fill="none" xmlns="http://www.w3.org/2000/svg" class="contacts-decor__item responsive-img">
+					<path
+						d="M1528.12 67.5975L1668 124.311C1115.2 254.11 809.169 251.801 269.908 124.311L0.00851167 207.298L0.00867558 116.775C-0.00237929 111.855 -0.00340344 106.526 0.00870464 100.728C441.6 -154.439 702.365 172.22 1528.12 67.5975Z"
+						fill="#5F6C7B" fill-opacity="0.1" />
+				</svg>
+				<svg width="1920" height="254" viewBox="0 0 1920 254" fill="none" xmlns="http://www.w3.org/2000/svg" class="contacts-decor__item responsive-img">
+					<path d="M0 254V39.8126C0 39.8126 218 129.391 960 39.8126C1702 -49.7657 1920 39.8126 1920 39.8126V254H0Z"
+						fill="#D8EEFE" />
+				</svg>
+			</div>
+
+		</section>
+
 	</main>
 
-	<footer class="page__footer"></footer>
+	<footer class="page__footer">
+
+		<div class="container">
+
+			<div class="grid-container footer-container">
+
+				<ul class="footer-contacts">
+					<li class="footer-contacts__item">
+						<a href="#" class="footer-contacts__link">Мы Вконтакте</a>
+					</li>
+					<li class="footer-contacts__item">
+						<a href="mailto:info@dreambody.ru" class="footer-contacts__link">info@dreambody.ru</a>
+					</li>
+					<li class="footer-contacts__item">
+						<a href="tel:+79847640044" class="footer-contacts__link">+7 984 764 00 44</a>
+					</li>
+				</ul>
+
+				<img src="./img/logo.svg" alt="Логотип" class="logo footer-logo">
+
+			</div>
+
+		</div>
+
+	</footer>
 
 	<script src="js/scripts.min.js"></script>
 
