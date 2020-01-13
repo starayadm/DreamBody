@@ -174,7 +174,9 @@ picture
 
 .section
 	&:not(:last-of-type)
-		margin-bottom: 7rem
+		margin-bottom: 2.5rem
+	&:not(:first-of-type)
+		padding-top: rem(82)
 
 // Hero
 
@@ -660,6 +662,7 @@ picture
 		margin-bottom: rem(192)
 		@include respond-at(768px)
 			margin-bottom: rem(256)
+			margin-left: 0.8rem
 		@include respond-at(1024px)
 			margin-bottom: rem(310)
 		@include respond-at(1200px)

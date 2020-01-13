@@ -25,6 +25,22 @@ document.addEventListener("DOMContentLoaded", function() {
 				pageBody.style.overflow = "auto";
 			};
 
+			for (let link of navLinks) {
+				link.addEventListener("click", function(e) {
+					e.preventDefault();
+					const blockID = link.getAttribute('href').substr(1);
+			
+					document.getElementById(blockID).scrollIntoView({
+						behavior: 'smooth',
+						block: 'start'
+					});
+
+					headerNav.classList.remove("nav--active");
+					menuBtn.classList.remove("is-active");
+					pageBody.style.overflow = "auto";
+				});
+			}
+
 			// // Animate Mobile Menu Links
 
 			const timelineLinks = anime.timeline({
@@ -48,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 		});
 
- // Smooth Scrolling
+ // Smooth Scrolling for desktop menu
 
  const anchors = document.querySelectorAll('a[href*="#"]');
 
@@ -144,5 +160,9 @@ document.addEventListener("DOMContentLoaded", function() {
 			},
 		},
 	});
+
+	// Animation on scroll
+
+	AOS.init();
 
 });
